@@ -4,10 +4,10 @@ metadata:
   name: eks-sample-linux-service
   namespace: default
   labels:
-    app: eks-sample-linux-app
+    app: eks-sample
 spec:
   selector:
-    app: eks-sample-linux-app
+    app: eks-sample
   ports:
     - protocol: TCP
       port: 80
