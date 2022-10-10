@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: eks-sample-linux-service
+  name: SERVICE_NAME-ENVIRONMENT-svc
   namespace: default
   labels:
-    app: eks-sample
+    app: SERVICE_NAME-ENVIRONMENT
 spec:
   selector:
-    app: eks-sample
+    app: SERVICE_NAME-ENVIRONMENT
   ports:
     - protocol: TCP
       port: 80
