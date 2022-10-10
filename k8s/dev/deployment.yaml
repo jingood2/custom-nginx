@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: custom-nginx-dev-deployment
+  name: custom-nginx
   namespace: awstf-dev
   labels:
     app: custom-nginx
