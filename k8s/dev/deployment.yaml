@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: SERVICE_NAME-ENVIRONMENT-deployment
-  namespace: default
+  name: custom-nginx-dev-deployment
+  namespace: awstf-dev
   labels:
-    app: SERVICE_NAME-ENVIRONMENT
+    app: custom-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: SERVICE_NAME-ENVIRONMENT
+      app: custom-nginx
   template:
     metadata:
       labels:
-        app: SERVICE_NAME-ENVIRONMENT
+        app: custom-nginx
     spec:
       affinity:
         nodeAffinity:
@@ -26,11 +26,11 @@ spec:
                 - amd64
                 - arm64
       containers:
-      - name: SERVICE_NAME
-        image: AWS_ECR_URI:IMAGE_TAG
+      - name: custom-nginx
+        image: 484752921218.dkr.ecr.ap-northeast-2.amazonaws.com/custom-nginx:latest
         ports:
         - name: http
-          containerPort: CONTAINER_PORT
+          containerPort: 80
         imagePullPolicy: IfNotPresent
       nodeSelector:
         kubernetes.io/os: linux
